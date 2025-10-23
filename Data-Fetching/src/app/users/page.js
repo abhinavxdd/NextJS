@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import useSWR from "swr";
+import styles from '../User.module.css'
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -31,7 +32,7 @@ export default function UserPage() {
         users.users &&
         users.users.map((user) => (
           <Link href={`/users/${user.id}`} key={user.id}>
-            <div>{user.firstName}</div>
+            <div className={styles["text-color"]}>{user.firstName}</div>
           </Link>
         ))}
     </div>
